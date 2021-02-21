@@ -1,0 +1,4 @@
+jini,32,mbcet,cs,1000
+jibi,16,cet,mech,13000
+parvathy,2,sfi,ec,100
+sera,26,sct,eee,1300
