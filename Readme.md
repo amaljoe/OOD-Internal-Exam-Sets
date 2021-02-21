@@ -1,3 +1,3 @@
-E - Easy question
-M - Medium level question
-H - Hard level question
+E - Easy question  
+M - Medium level question  
+H - Hard level question  
