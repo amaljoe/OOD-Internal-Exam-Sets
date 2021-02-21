@@ -6,6 +6,29 @@
 // parameter triple the original value of count.
 // Write a program to compare the two functions
 
-public class Parameter {
-    
+class Parameter {
+    int b;
+
+    Parameter(int b) {
+        this.b = b;
+    }
+
+    void triplebyvalue(int i) {
+        i *= 3;
+    }
+
+    void tripleByReference(Parameter p) {
+        p.b *= 3;
+    }
+
+    public static void main (String args[]){
+        Parameter p = new Parameter(10);
+        int a = 10;
+        System.out.println("a = " + a);
+        System.out.println("b = " + p.b);
+        p.triplebyvalue(a);
+        p.tripleByReference(p);
+        System.out.println("When passed by value, a is: "+ a);
+        System.out.println("When passed by reference, b is: "+ p.b);
+    }
 }
