@@ -85,7 +85,7 @@ public class calculatorXT extends JFrame implements ActionListener
                     }
                     catch(ArithmeticException e)
                     {
-                        System.out.println("Number nere nokki adikk myre");
+                        System.out.println("Error");
                     }
                 }
             }
