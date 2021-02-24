@@ -3,8 +3,10 @@ import java.awt.event.*;
 
 public class RailwayCrossing extends Frame implements ActionListener{
     boolean closed = false;
+    boolean shouldClose = false;
     int carX = -60;
     int trainY = -200;
+    int gateY = 0;
 
     RailwayCrossing() {
         setSize(640, 480);
@@ -34,9 +36,21 @@ public class RailwayCrossing extends Frame implements ActionListener{
 
     private void paintGate(Graphics g) {
         g.setColor(Color.BLACK);
-        if(closed) {
-            g.fillRect(270, 200, 5, 80);
+        if(gateY >= 80) {
+            closed = true;
+        } else if (gateY <= 0) {
+            closed = false;
         }
+        if(shouldClose) {
+            if(!closed) {
+                gateY += 10;
+            }
+        } else {
+            if(gateY > 0) {
+                gateY -= 10;
+            }
+        }
+        g.fillRect(270, 120 + gateY, 5, 80);
     }
 
     private void paintCar(Graphics g) {
@@ -59,7 +73,7 @@ public class RailwayCrossing extends Frame implements ActionListener{
         }
         if(trainY > 480) {
             trainY = -200;
-            closed = false;
+            shouldClose = false;
         }
         g.fillRect(295, trainY, 50, 200);
     }
@@ -85,6 +99,6 @@ public class RailwayCrossing extends Frame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		closed = true;
+		shouldClose = true;
 	}
 }
